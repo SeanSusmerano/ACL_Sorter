@@ -82,6 +82,21 @@ def _sort_List_of_List(list_of_List, depth = 0):
         return _sort_List_of_List(less_Than_List, depth = current_Depth) + _sort_List_of_List(equal_List, new_Depth) + _sort_List_of_List(more_Than_List, current_Depth)
 
 
+def add_Organized_Content(list_Of_Organized_IPs: list, filename = 'organized.txt') -> None:
+    file = open(filename, 'a')
+    counter = 0
+
+    for each_IP in list_Of_Organized_IPs:
+        counter += 1
+        ip_Text = f'{counter} permit igmp any host {each_IP}\n'
+        file.write(ip_Text)
+    
+    counter += 1
+    ip_Text = f'{counter} deny igmp any any'
+    file.write(ip_Text)
+    
+    file.close()
+
 def clean_Content(content_List: list) -> list[list]:
     new_Content_List = []
     
@@ -107,7 +122,7 @@ def get_Unorganized_Content(filename = "unorganized.txt") -> list:
 def organize_IP(content_List_of_List: list) -> list:
     ip_List = _breakup_IPs(content_List_of_List)
     ip_List_Numbers = _sort_List_of_List(ip_List)
-    print(_bundle_IPs(ip_List_Numbers))
+    return _bundle_IPs(ip_List_Numbers)
     
 
 def remove_Unorganized_Content(content_List_of_List: list, filename = 'organized.txt') -> None:
@@ -123,4 +138,5 @@ if(__name__ == "__main__"):
     content = get_Unorganized_Content()
     cleaned_Content = clean_Content(content)
     remove_Unorganized_Content(cleaned_Content)
-    organize_IP(cleaned_Content)
+    organized_IP_List = organize_IP(cleaned_Content)
+    add_Organized_Content(organized_IP_List)
