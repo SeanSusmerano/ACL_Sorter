@@ -33,7 +33,6 @@ def _bundle_IPs(list_of_Numbers: list) -> list[str]:
     return list_of_IPs
 
 
-
 def _sort_List_of_List(list_of_List, depth = 0):
     if(type(list_of_List[0]) == int):
         return list_of_List
@@ -47,14 +46,7 @@ def _sort_List_of_List(list_of_List, depth = 0):
     more_Than_List = []
 
     median_Index = math.ceil(len(list_of_List)/2)
-    try:
-        median = list_of_List[median_Index][depth]
-    except:
-        print(list_of_List)
-        print(median_Index)
-        print(list_of_List[median_Index])
-        print(depth)
-        sys.exit()
+    median = list_of_List[median_Index][depth]
 
     equal_List.append(list_of_List[median_Index])
     list_of_List.pop(median_Index)
@@ -82,6 +74,7 @@ def _sort_List_of_List(list_of_List, depth = 0):
         return _sort_List_of_List(less_Than_List, depth = current_Depth) + _sort_List_of_List(equal_List, new_Depth) + _sort_List_of_List(more_Than_List, current_Depth)
 
 
+
 def add_Organized_Content(list_Of_Organized_IPs: list, filename = 'organized.txt') -> None:
     file = open(filename, 'a')
     counter = 0
@@ -97,6 +90,7 @@ def add_Organized_Content(list_Of_Organized_IPs: list, filename = 'organized.txt
     
     file.close()
 
+
 def clean_Content(content_List: list) -> list[list]:
     new_Content_List = []
     
@@ -111,6 +105,7 @@ def clean_Content(content_List: list) -> list[list]:
             continue
     
     return new_Content_List
+
 
 def get_Unorganized_Content(filename = "unorganized.txt") -> list:
     file = open(filename, 'r')
