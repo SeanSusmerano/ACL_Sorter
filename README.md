@@ -65,17 +65,11 @@ This results in a list of lists, each representing an IP address in numerical fo
 Step 3: Recursive Sorting
 
 To sort the IPs, the script uses a recursive strategy similar to quicksort:
-
     Select a "base" IP from the middle of the list.
-
     Compare each IP’s current octet to the base:
-
         Less than → goes into the Less Than list
-
         Equal to → goes into the Equal To list (and moves to the next octet)
-
         Greater than → goes into the More Than list
-
     Recursively repeat this process until each list contains only one IP.
 
 Example:
