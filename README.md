@@ -52,7 +52,7 @@ Before sorting the IPs, the script writes each line to new_organized_ACL.txt wit
 #### Why?
 This ensures that when you re-add the reorganized ACL, the existing rules are cleared first. This prevents duplicate entries and avoids errors on the switch.
 
-###Step 2: Parsing and Sorting the IPs
+### Step 2: Parsing and Sorting the IPs
 
 Next, the script isolates the IP addresses by splitting them by the period (".") character and converting each octet into an integer for accurate comparison.
 
