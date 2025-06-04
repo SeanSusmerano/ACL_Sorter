@@ -75,7 +75,7 @@ def _sort_List_of_List(list_of_List, depth = 0):
 
 
 
-def add_Organized_Content(list_Of_Organized_IPs: list, filename = 'organized.txt') -> None:
+def add_Organized_Content(list_Of_Organized_IPs: list, filename = 'new_reorganized_ACL.txt') -> None:
     file = open(filename, 'a')
     counter = 0
 
@@ -97,6 +97,10 @@ def clean_Content(content_List: list) -> list[list]:
     for each_Sentence in content_List:
         nested_List = each_Sentence.split(" ")
         nested_List[-1] = nested_List[-1].replace('\n', '')
+
+        if(')' in nested_List[-1]):
+            nested_List = nested_List[:-2]
+
         if("deny" in nested_List):
             new_Content_List.append(nested_List[-5:])
         elif("permit" in nested_List):
@@ -107,7 +111,12 @@ def clean_Content(content_List: list) -> list[list]:
     return new_Content_List
 
 
-def get_Unorganized_Content(filename = "unorganized.txt") -> list:
+def clear_txt_file(filename: str):
+    file = open(filename, 'w')
+    file.close()
+
+
+def get_Unorganized_Content(filename = "original_ACL.txt") -> list:
     file = open(filename, 'r')
     content = file.readlines()
     file.close()
@@ -120,7 +129,7 @@ def organize_IP(content_List_of_List: list) -> list:
     return _bundle_IPs(ip_List_Numbers)
     
 
-def remove_Unorganized_Content(content_List_of_List: list, filename = 'organized.txt') -> None:
+def remove_Unorganized_Content(content_List_of_List: list, filename = 'new_reorganized_ACL.txt') -> None:
     file = open(filename, 'a')
 
     for each_List in content_List_of_List:
@@ -129,9 +138,16 @@ def remove_Unorganized_Content(content_List_of_List: list, filename = 'organized
     file.close()
 
 
-if(__name__ == "__main__"):
+
+def main():
+    clear_txt_file("new_reorganized_ACL.txt")
     content = get_Unorganized_Content()
     cleaned_Content = clean_Content(content)
     remove_Unorganized_Content(cleaned_Content)
     organized_IP_List = organize_IP(cleaned_Content)
     add_Organized_Content(organized_IP_List)
+
+
+
+if(__name__ == "__main__"):
+    main()
