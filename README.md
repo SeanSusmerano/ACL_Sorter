@@ -27,6 +27,7 @@ I created this project to address the common issue of disorganized access lists 
 ## Usage
 Instructions:
 Paste the ACL you want to organize into the file named original_ACL.txt, then run the script sort_ACL.py. After execution, the generated configuration commands will be saved in new_organized_ACL.txt.
+Be sure to include the corresponding deny configuration line as well to ensure any previous rules are properly cleared.
 
 Important Note:
 The output contains partial configuration commands intended to help organize your ACL. These commands are not a complete replacement for a full configuration and should not be pasted directly into your switch without proper the other configuration commands that are not provided by this project. Doing so may lead to errors or unintended behavior.
@@ -41,7 +42,7 @@ Example:
 "10 permit igmp any host 239.1.1.1"  
 → ['10', 'permit', 'igmp', 'any', 'host', '239.1.1.1']
 
-This step removes unnecessary indentation and allows for easier manipulation of each element—particularly the IP addresses.
+This step removes unnecessary indentation and allows for easier manipulation of each element-particularly the IP addresses.
 
 Each line (now a list of its components) is stored inside a larger list, making it easy to pass data between functions for further processing.
 
@@ -77,13 +78,13 @@ To sort the IPs, the script uses a recursive strategy similar to quicksort:
 
 #### Example:
 
-1st Recursion — Compare 1st octet  
+1st Recursion - Compare 1st octet  
 Base: [238, 1, 1, 2]  
 Less: []  
 Equal: [[238, 1, 1, 2], [238, 1, 1, 1]]  
 More: [[239, 1, 1, 1], [239, 1, 1, 4], [239, 1, 1, 2], [240, 1, 1, 2]]
 
-2nd Recursion — Compare 2nd octet in Equal list, etc.
+2nd Recursion - Compare 2nd octet in Equal list, etc.
 
 This continues until all IPs are sorted in correct order:
 
