@@ -6,9 +6,10 @@
 - [Usage](#usage)
 - [How It Works](#how-it-works)
 - [Future Plans](#future-plans)
+- [Contributing](#contributing)
+- [Disclaimer](#disclaimer)
 - [License](#license)
 - [Contact](#contact)
-- [Acknowledgements](#Acknowledgements)
 
 ## About the Project
 This project processes a text file containing a switch's IP access list and generates the necessary configuration commands to remove outdated entries and reorganize the access list in ascending IP address order.
@@ -25,12 +26,12 @@ I created this project to address the common issue of disorganized access lists 
 
 
 ## Usage
-Instructions:
+### Instructions:
 Paste the ACL you want to organize into the file named original_ACL.txt, then run the script sort_ACL.py. After execution, the generated configuration commands will be saved in new_organized_ACL.txt.
 Be sure to include the corresponding deny configuration line as well to ensure any previous rules are properly cleared.
 
-Important Note:
-The output contains partial configuration commands intended to help organize your ACL. These commands are not a complete replacement for a full configuration and should not be pasted directly into your switch without proper the other configuration commands that are not provided by this project. Doing so may lead to errors or unintended behavior.
+### Important Note:
+The output contains partial configuration commands intended to help organize your ACL. These commands are not a complete replacement for a full configuration and should not be pasted directly into your switch without the other configuration commands that are not provided by this project. Doing so may lead to errors or unintended behavior.
 
 
 ## How It Works
@@ -112,10 +113,19 @@ Once sorted, the IPs are reintegrated into their original ACL commands with appr
    Thank you for your interest! However, I am currently not accepting external contributions to this project.
 
 
+## Disclaimer
+
+This project does **not** contain any confidential or proprietary information belonging to my employer.  
+It was created independently for internal convenience and learning purposes, and is safe to share publicly.
+
+
 ## License
-   To be determined. This project is currently not licensed for reuse.
+This project is licensed under the MIT License.
+
+While this project is publicly available, it was primarily created for internal use by my coworkers.  
+Feel free to explore or adapt it, but please understand that its design is tailored to our team's workflow.
 
 
 ## Contact
 Sean Susmerano - - susmeranosean@gmail.com
-Project Link: https://github.com/SeanSusmerano/MTG-Card-Lookup
+Project Link: https://github.com/SeanSusmerano/ACL_Sorter
