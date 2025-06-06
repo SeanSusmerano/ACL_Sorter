@@ -17,8 +17,6 @@ def main():
         IPs_Text_List[counter] = each_IP.strip('\n')
         counter += 1
 
-    print(IPs_Text_List)
-
     IPs_Text_Block = sort_ACL.get_Unorganized_Content()
     IPs_Sentence_List = sort_ACL.clean_Content(IPs_Text_Block)
 
