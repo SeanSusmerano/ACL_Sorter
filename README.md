@@ -33,6 +33,9 @@ Be sure to include the corresponding deny configuration line as well to ensure a
 ### Important Note:
 The output contains partial configuration commands intended to help organize your ACL. These commands are not a complete replacement for a full configuration and should not be pasted directly into your switch without the other configuration commands that are not provided by this project. Doing so may lead to errors or unintended behavior.
 
+### Instruction for checking IPs in the ACL:
+To use this tool, start by pasting the ACL you want to verify into the file named original_ACL.txt. Next, add the IPs you want to check into check_IPs.txt, making sure each IP address is on its own line for the script to function properly. Once both files are prepared, run the check_ACL.py script. The results will be saved and displayed in the same check_IPs.txt file.
+
 
 ## How It Works
 
@@ -105,7 +108,7 @@ Once sorted, the IPs are reintegrated into their original ACL commands with appr
 
 
 ## Future Plans
-[ ] Quick IP Check
+[x] Quick IP Check
 - After discussing with a coworker, she confirmed that having a faster method to check whether a list of IPs exists in the access list would also significantly improve efficiency. I'd like to add this feature to the project, even though it wasn't part of the original goal, as it further enhances efficiency in our daily workflow.
 
 
