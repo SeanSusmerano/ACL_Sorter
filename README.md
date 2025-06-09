@@ -10,6 +10,7 @@
 - [Disclaimer](#disclaimer)
 - [License](#license)
 - [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 
 ## About the Project
 This project processes a text file containing a switch's IP access list and generates the necessary configuration commands to remove outdated entries and reorganize the access list in ascending IP address order.
@@ -132,3 +133,6 @@ Feel free to explore or adapt it, but please understand that its design is tailo
 ## Contact
 Sean Susmerano - - susmeranosean@gmail.com
 Project Link: https://github.com/SeanSusmerano/ACL_Sorter
+
+## Acknowledgements
+- My Coworker, Payton Houser - Thank you for encouraging me to turn my frustrations into a meaningful solution, and for helping refine the idea to be as helpful as possible.
